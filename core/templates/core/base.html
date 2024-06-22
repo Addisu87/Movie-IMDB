@@ -1,0 +1,21 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <meta name="author" content="Addisu">
+  
+  {% comment %} <title>{% block title %} {% endblock %}</title> {% endcomment %}
+  
+  <title>Djanog-Tailwind</title>
+  {% comment %} <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> {% endcomment %}
+    <body>
+    {% comment %} {% block content %}
+
+    {% endblock %} {% endcomment %}
+    <div class="m-10 p-10 bg-blue-300 rounded-xl">Addisu</div>
+    </body>
+</html>

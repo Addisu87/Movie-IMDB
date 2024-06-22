@@ -31,5 +31,14 @@ urlpatterns = [
          name='api-docs'),
 
     path('admin/', admin.site.urls),
-    path('', home, name="home"),
+    path('', home, name='home'),
+    # Add other views as needed
+    # path('community/', community.as_view, name='community'),
+    # path('discovery/', discovery.as_view, name='discovery'),
+    # path('coming_soon/', coming_soon.as_view, name='coming_soon'),
+    # path('profile/', profile.as_view, name='profile'),
+    # path('friends/', friends.as_view, name='friends'),
+    # path('media/', media.as_view, name='media'),
+    # path('settings/', settings.as_view, name='settings'),
+    # path('logout/', logou.as_view, name='logout'),
 ]

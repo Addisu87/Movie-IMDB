@@ -5,7 +5,7 @@ module.exports = {
 	mode: 'jit',
 	darkMode: 'class', //false, class, media
 	content: [
-		'.core/templates/core/*.html',
+		'./core/templates/core/*.html',
 		'./static/**/*.css',
 		'./static/**/*.js',
 	],

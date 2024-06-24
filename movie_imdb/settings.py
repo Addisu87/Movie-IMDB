@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'core.movies',
     'rest_framework',
     'drf_spectacular',
+    'fontawesomefree',
 ]
 
 MIDDLEWARE = [

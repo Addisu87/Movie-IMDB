@@ -13,7 +13,12 @@
         content="width=device-width, initial-scale=1.0"
     />
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+   <!-- Font Awesome CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
     <meta name="author" content="Addisu" />
+
     <title>{% block title %}MMovie{% endblock %}</title>
     <script
         defer
@@ -26,30 +31,23 @@
     </style>
 </head>
 
- 
-<body class="bg-gray-100 dark:bg-gray-900">
-      <!-- Include navbar component -->
-      {% comment %} {% include 'core/navbar.html' %} {% endcomment %}
+<body class="font-montserrat text-sm bg-white dark:bg-zinc-900">
+         {% block content %}
+            
+        {% endblock %}
 
-      <!-- Main content block -->
-      <div class="container mx-auto">
-          {% block content %}
-          {% endblock %}
-      </div>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggle = document.querySelector('#toggle');
-            toggle.addEventListener('change', (event) => {
-                if (event.target.checked) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const toggle = document.querySelector('#toggle');
+                toggle.addEventListener('change', (event) => {
+                    if (event.target.checked) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 </html>
 

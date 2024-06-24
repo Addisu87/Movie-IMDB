@@ -22,7 +22,7 @@ from drf_spectacular.views import (
 from django.contrib import admin
 from django.urls import path, include
 
-from core.views import home
+from core.views import index
 
 
 urlpatterns = [
@@ -31,7 +31,7 @@ urlpatterns = [
          name='api-docs'),
 
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
+    path('', index, name='index'),
     # Add other views as needed
     # path('community/', community.as_view, name='community'),
     # path('discovery/', discovery.as_view, name='discovery'),
@@ -40,5 +40,5 @@ urlpatterns = [
     # path('friends/', friends.as_view, name='friends'),
     # path('media/', media.as_view, name='media'),
     # path('settings/', settings.as_view, name='settings'),
-    # path('logout/', logou.as_view, name='logout'),
+    # path('logout/', logout.as_view, name='logout'),
 ]

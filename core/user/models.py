@@ -14,7 +14,7 @@ def user_image_file_path(instance, filename):
     ext = os.path.splitext(filename)[1]
     filename = f'{uuid.uuid4()}{ext}'
 
-    return os.path.join('media', 'user', filename)
+    return os.path.join('user', filename)
 
 
 class UserManager(BaseUserManager, AbstractManager):

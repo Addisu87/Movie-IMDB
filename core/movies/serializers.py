@@ -1,11 +1,15 @@
 
 from rest_framework import serializers
-from core.movies.models import Movie
+from .models import Movie, Review
 
 
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = "__all__"
-        # fields = ['id', 'title', 'description']
-        # exclude = ['released']
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = "__all__"

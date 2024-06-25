@@ -4,11 +4,3 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'core/index.html')
-
-
-def movie(request):
-    movies = Movie.objects.all()  # Query your movies here
-    context = {
-        'movies': movies,
-    }
-    return render(request, 'movies.html', context)

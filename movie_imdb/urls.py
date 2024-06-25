@@ -32,6 +32,8 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('', include('core.movies.urls'))
+
     # Add other views as needed
     # path('community/', community.as_view, name='community'),
     # path('discovery/', discovery.as_view, name='discovery'),

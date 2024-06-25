@@ -68,6 +68,16 @@ class User(AbstractModel, AbstractBaseUser):
     def __str__(self):
         return self.email
 
+    def has_perm(self, perm, obj=None):
+        "Does the user have a specific permission?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    def has_module_perms(self, movies):
+        "Does the user have permissions to view the app `movies`?"
+        # Simplest possible answer: Yes, always
+        return True
+
     @property
     def name(self):
         return f"{self.first_name} {self.last_name}"

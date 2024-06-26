@@ -26,22 +26,11 @@ from core.views import index
 
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(('core.routers', 'core'), namespace="core-api")),
     path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'),
          name='api-docs'),
 
-    path('admin/', admin.site.urls),
-    path('', index, name='index'),
-    path('', include('core.movies.urls')),
-
-
-    # Add other views as needed
-    # path('community/', community.as_view, name='community'),
-    # path('discovery/', discovery.as_view, name='discovery'),
-    # path('coming_soon/', coming_soon.as_view, name='coming_soon'),
-    # path('profile/', profile.as_view, name='profile'),
-    # path('friends/', friends.as_view, name='friends'),
-    # path('media/', media.as_view, name='media'),
-    # path('settings/', settings.as_view, name='settings'),
-    # path('logout/', logout.as_view, name='logout'),
+    # path('', index, name='index'),
 ]

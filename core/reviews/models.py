@@ -10,7 +10,7 @@ class Rating(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
     rating = models.FloatField(
-        validators=[MinValueValidator(0.0), MaxValueValidator(10)])
+        validators=[MinValueValidator(1.0), MaxValueValidator(10)])
     source = models.CharField(max_length=175)
     movie = models.ForeignKey(
         Movie, related_name='ratings', on_delete=models.CASCADE)
@@ -18,7 +18,7 @@ class Rating(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         # Calculate and update average rating for the movie
-        self.movie.update_average_rating()
+        self.movie.average_rating()
 
     def __str__(self):
         return f'{self.source}: {self.rating}'

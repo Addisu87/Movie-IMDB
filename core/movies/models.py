@@ -35,8 +35,7 @@ class Movie(AbstractModel):
         # Calculate average rating for the movie
         ratings = self.ratings.all()
         if ratings.exists():
-            avg_rating = sum(
-                rating.rating for rating in ratings) / ratings.count()
+            avg_rating = sum(rating.rating for rating in ratings) / ratings.count()
             return avg_rating
         else:
-            return 0.0
+            return 1.0

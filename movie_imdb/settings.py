@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'core.user',
     'core.movies',
+    'core.reviews',
     'rest_framework',
     'drf_spectacular',
     'fontawesomefree',

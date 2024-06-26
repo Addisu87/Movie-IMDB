@@ -1,23 +1,13 @@
 
 from rest_framework import serializers
-from .models import Movie, Review, Rating
+from .models import Movie
+
+from core.abstract.serializers import AbstractSerializer
+from core.reviews.serializers import ReviewSerializer
 
 
-class RatingSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Rating
-        fields = "__all__"
-
-
-class ReviewSerializer(serializers.ModelSerializer):
-    rating = RatingSerializer()
-
-    class Meta:
-        model = Review
-        fields = "__all__"
-
-
-class MovieSerializer(serializers.ModelSerializer):
+class MovieSerializer(AbstractSerializer):
+    # Nested serializer for reviews
     reviews = ReviewSerializer(many=True, read_only=True)
 
     class Meta:

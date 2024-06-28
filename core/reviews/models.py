@@ -17,8 +17,9 @@ class Rating(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        # Calculate and update average rating for the movie
-        self.movie.average_rating()
+
+       # Update average rating for the movie after saving a new rating
+        self.movie.save()
 
     def __str__(self):
         return f'{self.source}: {self.rating}'

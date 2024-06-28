@@ -12,15 +12,16 @@ from rest_framework import status
 # Class based views
 
 class MovieList(APIView):
+    template_name = "core/movies.html"
     """
     List all movies, or create a new movie.
     """
-    
 
     def get(self, request):
         movies = Movie.objects.all()
-        serializer = MovieSerializer(movies, many=True)
-        return Response(serializer.data)
+        # serializer = MovieSerializer(movies, many=True)
+        # return Response(serializer.data)
+        return render(request, self.template_name, {'movies': movies})
 
     def post(self, request):
         serializer = MovieSerializer(data=request.data)

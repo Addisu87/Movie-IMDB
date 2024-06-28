@@ -1,6 +1,8 @@
-from core.movies.models import Movie  # Replace with your actual Movie model
+
 from django.shortcuts import render
+from core.movies.models import Movie
 
 
 def index(request):
-    return render(request, 'core/index.html')
+    movies = Movie.objects.all()
+    return render(request, 'core/content.html', {'movies': movies})

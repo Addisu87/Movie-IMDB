@@ -1,11 +1,32 @@
+from rest_framework import generics
+from rest_framework.exceptions import ValidationError
+
 from core.reviews.models import Review
 from core.reviews.serializers import ReviewSerializer
-from rest_framework import mixins, generics
+from core.movies.models import Movie
 
 # using generic class-based views
 
 
-class ReviewList(generics.ListCreateAPIView):
+class ReviewCreate(generics.CreateAPIView):
+    serializer_class = ReviewSerializer
+
+    def get_queryset(self):
+        return Review.objects.all()
+
+    def perform_create(self, serializer):
+        pk = self.kwargs.get('pk')
+        movie = Movie.objects.get(pk=pk)
+
+        review_user = self.request.user
+        review_query = Review.objects.filter(movie=movie, user=review_user)
+
+        if review_query.exists():
+            raise ValidationError("You have already reviewed this movie.")
+        serializer.save(movie=movie, user=review_user)
+
+
+class ReviewList(generics.ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
@@ -13,37 +34,3 @@ class ReviewList(generics.ListCreateAPIView):
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
-
-
-# using mixins
-
-
-# class ReviewList(mixins.ListModelMixin,
-#                  mixins.CreateModelMixin,
-#                  generics.GenericAPIView):
-#     queryset = Review.objects.all()
-#     serializer_class = ReviewSerializer
-
-#     def get(self, request, *args, **kwargs):
-#         return self.list(request, *args, **kwargs)
-
-#     def post(self, request, *args, **kwargs):
-#         return self.create(request, *args, **kwargs)
-
-
-# class ReviewDetail(mixins.RetrieveModelMixin,
-#                    mixins.UpdateModelMixin,
-#                    mixins.DestroyModelMixin,
-#                    generics.GenericAPIView):
-
-#     queryset = Review.objects.all()
-#     serializer_class = ReviewSerializer
-
-#     def get(self, request, *args, **kwargs):
-#         return self.retrieve(request, *args, **kwargs)
-
-#     def put(self, request, *args, **kwargs):
-#         return self.update(request, *args, **kwargs)
-
-#     def delete(self, request, *args, **kwargs):
-#         return self.destroy(request, *args, **kwargs)

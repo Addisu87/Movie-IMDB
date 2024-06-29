@@ -39,6 +39,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('', include('core.movies.urls')),
     path('', include('core.reviews.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 if settings.DEBUG:

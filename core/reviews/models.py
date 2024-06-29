@@ -8,7 +8,7 @@ from core.movies.models import Movie
 
 class Rating(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+                             related_name='rating', on_delete=models.CASCADE)
     movie = models.ForeignKey(
         Movie, related_name='ratings', on_delete=models.CASCADE)
     rating = models.FloatField(
@@ -27,7 +27,7 @@ class Rating(models.Model):
 
 class Review(AbstractModel):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+                             related_name='reviews', on_delete=models.CASCADE)
     movie = models.ForeignKey(
         Movie, related_name='reviews', on_delete=models.CASCADE)
     content = models.TextField(max_length=300, blank=True)

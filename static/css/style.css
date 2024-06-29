@@ -888,6 +888,10 @@ video {
   width: 3rem;
 }
 
+.w-2{
+  width: 0.5rem;
+}
+
 .w-32{
   width: 8rem;
 }

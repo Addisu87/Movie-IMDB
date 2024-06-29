@@ -19,9 +19,9 @@ class MovieList(APIView):
 
     def get(self, request):
         movies = Movie.objects.all()
-        # serializer = MovieSerializer(movies, many=True)
-        # return Response(serializer.data)
-        return render(request, self.template_name, {'movies': movies})
+        serializer = MovieSerializer(movies, many=True)
+        return Response(serializer.data)
+        # return render(request, self.template_name, {'movies': movies})
 
     def post(self, request):
         serializer = MovieSerializer(data=request.data)

@@ -7,11 +7,11 @@
 {% block content %}
 
     <!-- Main content block -->
-    <div class="flex min-h-screen 2xl:max-w-screen-2xl 2xl:mx-auto 
-         2xl:border-x-2 2xl:border-gray-200 dark:2xl:border-zinc-700"
+    <div class="flex min-h-screen max-w-screen-2xl mx-auto 
+         border-x-2 border-gray-200 dark:border-zinc-700"
     >
          <div class="container mx-auto">
-            <main class="flex-1 py-10 px-5 sm:px-10">
+            <main class="flex-1 py-10 px-4 sm:px-6">
 
                 {% include "core/banner.html" %}
 
@@ -22,7 +22,7 @@
         </div>
 
         <!-- Default sidebar content, if any -->
-        <aside class="w-1/5 py-10 px-10 min-w-min border-l border-gray-300 dark:border-zinc-700 hidden lg:block">
+        <aside class="w-1/5 py-8 px-6 min-w-min border-l border-gray-300 dark:border-zinc-700 hidden lg:block">
             {% include 'core/sidebar.html' %}
         <aside>
     </div>

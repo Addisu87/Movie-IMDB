@@ -160,10 +160,10 @@ DEFAULT_AVATAR_URL = "https://storage.googleapis.com/pai-images/d0af61e17f2c471a
 
 
 # permission globally
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework_simplejwt.authentication.JWTAuthentication',
-#     ),
-#     'DEFAULT_FILTER_BACKENDS':
-#     ['django_filters.rest_framework.DjangoFilterBackend'],
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_FILTER_BACKENDS':
+    ['django_filters.rest_framework.DjangoFilterBackend'],
+}

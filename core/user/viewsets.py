@@ -28,6 +28,3 @@ class UserViewSet(viewsets.ModelViewSet):
         obj = User.objects.get_object_by_public_id(pk)
         self.check_object_permissions(self.request, obj)
         return obj
-        # obj = get_object_or_404(self.get_queryset(), pk=self.kwargs['pk'])
-        # self.check_object_permissions(self.request, obj)
-        # return obj

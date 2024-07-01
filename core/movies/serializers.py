@@ -17,6 +17,5 @@ class MovieSerializer(AbstractSerializer):
     class Meta:
         model = Movie
         fields = ['id', 'title', 'slug', 'plot', 'poster',
-                  'released_year', 'duration', 'created',
-                  'updated'
-                  ]
+                  'released_year', 'duration', 'actors', 'directors',
+                  'genres', 'created', 'updated']

@@ -1,6 +1,5 @@
-
-from core.languages.models import Language
 from core.abstract.serializers import AbstractSerializer
+from core.languages.models import Language
 
 
 class LanguageSerializer(AbstractSerializer):

@@ -1,5 +1,4 @@
 from core.genres.models import Genre
-
 from core.abstract.serializers import AbstractSerializer
 
 

@@ -7,4 +7,4 @@ class CinemaSerializer(AbstractSerializer):
     class Meta:
         model = Cinema
         fields = ['id', 'cinema_name', 'city', 'state',
-                  'country', 'street_number',  'created', 'updated']
+                  'country', 'street_number', 'created', 'updated']

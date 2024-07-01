@@ -1,7 +1,5 @@
-
-from core.awards.models import Award
-
 from core.abstract.serializers import AbstractSerializer
+from core.awards.models import Award
 
 
 class AwardSerializer(AbstractSerializer):

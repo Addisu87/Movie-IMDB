@@ -7,7 +7,7 @@ from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 from core.abstract.models import (AbstractModel, AbstractManager)
 
 
-def user_image_file_path(instance, filename):
+def user_image_file_path(filename):
     """
     Generate file path for new user image.
     """

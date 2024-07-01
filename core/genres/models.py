@@ -1,10 +1,10 @@
 
 from django.db import models
+from core.abstract.models import AbstractModel
 
-from core.movies.models import Movie
 
-
-class Genre(models.Model):
-    movie = models.ForeignKey(
-        Movie, related_name='genre', on_delete=models.CASCADE)
+class Genre(AbstractModel):
     genre_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.genre_name}"

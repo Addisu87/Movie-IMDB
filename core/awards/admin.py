@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.genres.models import Genre
+from core.awards.models import Award
 
 # Register your models here.
-admin.site.register(Genre)
+admin.site.register(Award)

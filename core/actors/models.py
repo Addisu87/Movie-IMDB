@@ -4,7 +4,6 @@ import uuid
 from django.db import models
 
 from core.abstract.models import AbstractModel
-from core.movies.models import Movie
 
 
 def actor_image(filename):
@@ -17,10 +16,11 @@ def actor_image(filename):
 
 
 class Actor(AbstractModel):
-    movie = models.ForeignKey(
-        Movie, related_name='actor', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     profile_image = models.ImageField(blank=True, upload_to=actor_image)
     nationality = models.CharField(max_length=50)
     birth_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"

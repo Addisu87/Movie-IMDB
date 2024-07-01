@@ -2,7 +2,6 @@ import os
 import uuid
 from django.db import models
 from core.abstract.models import AbstractModel
-from core.movies.models import Movie
 
 
 def director_image(filename):
@@ -15,10 +14,11 @@ def director_image(filename):
 
 
 class Director(AbstractModel):
-    movie = models.ForeignKey(
-        Movie, related_name='director', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     profile_image = models.ImageField(blank=True, upload_to=director_image)
     nationality = models.CharField(max_length=50)
     birth_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"

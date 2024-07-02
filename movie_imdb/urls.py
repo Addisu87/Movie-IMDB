@@ -36,10 +36,8 @@ urlpatterns = [
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'),
          name='api-docs'),
 
-    path('', index, name='index'),
-    path('', include('core.movies.urls')),
-    path('', include('core.reviews.urls')),
-    path('api-auth/', include('rest_framework.urls')),
+    # path('', index, name='index'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 if settings.DEBUG:

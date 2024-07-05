@@ -4,7 +4,7 @@ from django.db import models
 from core.abstract.models import AbstractModel
 
 
-def director_image(filename):
+def director_image_path(filename):
     """
     Generate file path for new director profile image.
     """
@@ -16,7 +16,8 @@ def director_image(filename):
 class Director(AbstractModel):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    profile_image = models.ImageField(blank=True, upload_to=director_image)
+    director_photo = models.ImageField(
+        blank=True, upload_to=director_image_path)
     nationality = models.CharField(max_length=50)
     birth_date = models.DateField()
 

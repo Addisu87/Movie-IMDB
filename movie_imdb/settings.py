@@ -151,6 +151,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # To create a schema file
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_FILTER_BACKENDS':
+    ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 # Overriding the default user model
@@ -159,13 +164,3 @@ AUTH_USER_MODEL = 'core_user.User'
 
 # Default avatar URL
 DEFAULT_AVATAR_URL = "https://storage.googleapis.com/pai-images/d0af61e17f2c471aaf36fa513c73bd12.jpeg"
-
-
-# permission globally
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-    'DEFAULT_FILTER_BACKENDS':
-    ['django_filters.rest_framework.DjangoFilterBackend'],
-}

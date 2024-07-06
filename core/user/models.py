@@ -7,14 +7,14 @@ from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 from core.abstract.models import (AbstractModel, AbstractManager)
 
 
-def user_image_file_path(filename):
+def user_image_file_path(instance, filename):
     """
     Generate file path for new user image.
     """
     ext = os.path.splitext(filename)[1]
     filename = f'{uuid.uuid4()}{ext}'
 
-    return os.path.join('user', filename)
+    return os.path.join('users', filename)
 
 
 class UserManager(BaseUserManager, AbstractManager):

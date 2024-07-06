@@ -27,7 +27,7 @@ from drf_spectacular.views import (
     SpectacularSwaggerView
 )
 
-from core.views import index
+from core.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,7 +36,7 @@ urlpatterns = [
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'),
          name='api-docs'),
 
-    path('', index, name='index'),
+    path('', home, name='home'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 

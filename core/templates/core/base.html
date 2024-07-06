@@ -23,31 +23,13 @@
     <script
         defer
         src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-    <style>
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-    </style>
-</head>
+    ></script> 
 
+</head>
 <body class="font-montserrat text-sm bg-white dark:bg-zinc-900">
-         {% block content %}
+        {% block content %}
             
         {% endblock %}
-
-        {% comment %} <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const toggle = document.querySelector('#toggle');
-                toggle.addEventListener('change', (event) => {
-                    if (event.target.checked) {
-                        document.documentElement.classList.add('dark');
-                    } else {
-                        document.documentElement.classList.remove('dark');
-                    }
-                });
-            });
-        </script> {% endcomment %}
 </body>
 </html>
 

@@ -23,15 +23,15 @@
     <div class="container mx-auto mt-4 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {% comment %} {% for actor in actors %} {% endcomment %}
         <div class="relative rounded-xl overflow-hidden">
-           {% if actor.actor_photo%}
-            <img src="{{ actor.actor_photo.url }}" 
-            class="object-cover h-full w-full -z-10" 
-            alt="{{ actor.first_name }}" 
-            />
-            {% else %}
+            {% comment %} {% if actor.actor_photo %}
+                <img src="{{ actor.actor_photo.url }}" 
+                class="object-cover h-full w-full -z-10" 
+                alt="{{actor.first_name}}" 
+                />
+            {% else %} {% endcomment %}
                 <img src="{% static 'images/actors/default_profile.jpg' %}"
                  class="object-cover h-full w-full z-10" alt="actor_photo" />
-            {% endif %} 
+            {% comment %} {% endif %}   {% endcomment %}
 
             <div class="absolute top-0 h-full w-full bg-gradient-to-t from-black/50 p-3 flex flex-col justify-between">
                 <a href="#" class="p-1.5 bg-gray-800/80 rounded-lg text-white self-end hover:bg-red-600/80">
@@ -43,9 +43,9 @@
                     </svg>
                 </a>
                 <div class="self-center flex flex-col items-center space-y-2">
-                    <span class="capitalize text-white font-normal text-smdrop-shadow-md">
+                    {% comment %} <span class="capitalize text-white font-normal text-smdrop-shadow-md">
                         {{actor.first_name}} {{ actor.last_name }}
-                    </span>
+                    </span> {% endcomment %}
                     <span class="text-gray-100 text-xs">+12 Movies</span>
                 </div>
             </div>

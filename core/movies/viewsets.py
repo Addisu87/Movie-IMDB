@@ -1,4 +1,4 @@
-# Create your views here.
+
 from rest_framework import viewsets
 
 from core.movies.models import Movie

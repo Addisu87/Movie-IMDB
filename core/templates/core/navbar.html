@@ -1,7 +1,7 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-<nav class="bg-white dark:bg-gray-800 shadow-md py-4">
+<nav class="bg-white dark:bg-gray-800 shadow-md py-4" x-data="dropdown()">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
             <div class="flex items-center">
@@ -14,24 +14,24 @@
             </div>
             <div class="hidden md:flex space-x-4">
                 <a href="{% url 'home' %}" class="text-gray-500 dark:text-white font-semibold py-1 border-b-2 border-red-600">Home</a>
-                <div class="relative dropdown">
-                    <button class="text-gray-500 dark:text-white font-semibold py-1">Menu</button>
+                <div class="relative dropdown" >
+                    <button class="text-gray-500 dark:text-white font-semibold py-1" x-bind="trigger">Menu</button>
                     <div class="absolute left-0 mt-2 py-2 w-48 bg-white dark:bg-gray-700 rounded-md shadow-xl dropdown-menu hidden">
-                        {% comment %} <a href="{% url 'community' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600">Community</a> {% endcomment %}
-                        {% comment %} <a href="{% url 'discovery' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600">Discovery</a> {% endcomment %}
-                        {% comment %} <a href="{% url 'coming_soon' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600">Coming Soon</a> {% endcomment %}
+                        {% comment %} <a href="{% url 'community' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Community</a> {% endcomment %}
+                        {% comment %} <a href="{% url 'discovery' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Discovery</a> {% endcomment %}
+                        {% comment %} <a href="{% url 'coming_soon' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Coming Soon</a> {% endcomment %}
                     </div>
                 </div>
                 <div class="relative dropdown">
-                    <button class="text-gray-500 dark:text-white font-semibold py-1">Social</button>
+                    <button class="text-gray-500 dark:text-white font-semibold py-1" x-bind="trigger">Social</button>
                     <div class="absolute left-0 mt-2 py-2 w-48 bg-white dark:bg-gray-700 rounded-md shadow-xl dropdown-menu hidden">
-                        {% comment %} <a href="{% url 'profile' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600">Profile</a> {% endcomment %}
-                        {% comment %} <a href="{% url 'friends' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600">Friends</a> {% endcomment %}
-                        {% comment %} <a href="{% url 'media' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600">Media</a> {% endcomment %}
+                        {% comment %} <a href="{% url 'profile' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Profile</a> {% endcomment %}
+                        {% comment %} <a href="{% url 'friends' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Friends</a> {% endcomment %}
+                        {% comment %} <a href="{% url 'media' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Media</a> {% endcomment %}
                     </div>
                 </div>
-                {% comment %} <a href="{% url 'settings' %}" class="text-gray-500 dark:text-white font-semibold py-1">Settings</a> {% endcomment %}
-                {% comment %} <a href="{% url 'logout' %}" class="text-gray-500 dark:text-white font-semibold py-1">Logout</a> {% endcomment %}
+                {% comment %} <a href="{% url 'settings' %}" class="text-gray-500 dark:text-white font-semibold py-1" x-bind="dialogue">Settings</a> {% endcomment %}
+                {% comment %} <a href="{% url 'logout' %}" class="text-gray-500 dark:text-white font-semibold py-1" x-bind="dialogue">Logout</a> {% endcomment %}
             </div>
             <div class="md:hidden">
                 <button class="text-gray-500 dark:text-white focus:outline-none">
@@ -43,4 +43,22 @@
         </div>
     </div>
 </nav>
+
+<script>
+    function dropdown() {
+        return {
+            open: false,
+ 
+            trigger: {
+                'x-on:click'() { this.open = ! this.open },
+            },
+ 
+            dialogue: {
+                'x-show'() { return this.open },
+                'x-bind:class'() { return 'foo bar' },
+            },
+        }
+    }
+</script>
+
 {% endblock %}

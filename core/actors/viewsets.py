@@ -11,4 +11,4 @@ class ActorViewSet(AbstractViewSet):
         return Actor.objects.all()
 
     def get_top_actors(self):
-        return self.queryset.all()[:6]
+        return self.queryset.all()[:12]

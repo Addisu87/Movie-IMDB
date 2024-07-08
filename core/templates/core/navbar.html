@@ -17,21 +17,21 @@
                 <div class="relative dropdown" >
                     <button class="text-gray-500 dark:text-white font-semibold py-1" x-bind="trigger">Menu</button>
                     <div class="absolute left-0 mt-2 py-2 w-48 bg-white dark:bg-gray-700 rounded-md shadow-xl dropdown-menu hidden">
-                        {% comment %} <a href="{% url 'community' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Community</a> {% endcomment %}
-                        {% comment %} <a href="{% url 'discovery' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Discovery</a> {% endcomment %}
-                        {% comment %} <a href="{% url 'coming_soon' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Coming Soon</a> {% endcomment %}
+                        {% comment %} <a href="{% url 'community' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Community</a>
+                        <a href="{% url 'discovery' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Discovery</a>
+                        <a href="{% url 'coming_soon' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Coming Soon</a> {% endcomment %}
                     </div>
                 </div>
                 <div class="relative dropdown">
                     <button class="text-gray-500 dark:text-white font-semibold py-1" x-bind="trigger">Social</button>
                     <div class="absolute left-0 mt-2 py-2 w-48 bg-white dark:bg-gray-700 rounded-md shadow-xl dropdown-menu hidden">
-                        {% comment %} <a href="{% url 'profile' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Profile</a> {% endcomment %}
-                        {% comment %} <a href="{% url 'friends' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Friends</a> {% endcomment %}
-                        {% comment %} <a href="{% url 'media' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Media</a> {% endcomment %}
+                        {% comment %} <a href="{% url 'profile' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Profile</a>
+                        <a href="{% url 'friends' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Friends</a>
+                        <a href="{% url 'media' %}" class="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600" x-bind="dialogue">Media</a> {% endcomment %}
                     </div>
                 </div>
-                {% comment %} <a href="{% url 'settings' %}" class="text-gray-500 dark:text-white font-semibold py-1" x-bind="dialogue">Settings</a> {% endcomment %}
-                {% comment %} <a href="{% url 'logout' %}" class="text-gray-500 dark:text-white font-semibold py-1" x-bind="dialogue">Logout</a> {% endcomment %}
+                {% comment %} <a href="{% url 'settings' %}" class="text-gray-500 dark:text-white font-semibold py-1" x-bind="dialogue">Settings</a>
+                <a href="{% url 'logout' %}" class="text-gray-500 dark:text-white font-semibold py-1" x-bind="dialogue">Logout</a> {% endcomment %}
             </div>
             <div class="md:hidden">
                 <button class="text-gray-500 dark:text-white focus:outline-none">

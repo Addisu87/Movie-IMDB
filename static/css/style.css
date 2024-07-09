@@ -1013,10 +1013,6 @@ video {
   list-style-type: none;
 }
 
-.auto-cols-\[20\%\]{
-  grid-auto-columns: 20%;
-}
-
 .auto-cols-max{
   grid-auto-columns: max-content;
 }
@@ -1085,6 +1081,10 @@ video {
   justify-content: space-between;
 }
 
+.gap-1{
+  gap: 0.25rem;
+}
+
 .gap-2{
   gap: 0.5rem;
 }
@@ -1099,10 +1099,6 @@ video {
 
 .gap-8{
   gap: 2rem;
-}
-
-.gap-1{
-  gap: 0.25rem;
 }
 
 .gap-x-3{
@@ -1460,6 +1456,14 @@ video {
      object-position: center;
 }
 
+.p-0{
+  padding: 0px;
+}
+
+.p-0\.5{
+  padding: 0.125rem;
+}
+
 .p-1{
   padding: 0.25rem;
 }
@@ -1482,14 +1486,6 @@ video {
 
 .p-4{
   padding: 1rem;
-}
-
-.p-0{
-  padding: 0px;
-}
-
-.p-0\.5{
-  padding: 0.125rem;
 }
 
 .px-10{
@@ -2044,18 +2040,6 @@ video {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .sm\:grid-cols-3{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .sm\:p-0{
-    padding: 0px;
-  }
-
-  .sm\:p-0\.5{
-    padding: 0.125rem;
-  }
-
   .sm\:px-6{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2091,10 +2075,6 @@ video {
 
   .lg\:block{
     display: block;
-  }
-
-  .lg\:grid-cols-6{
-    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:flex-row{

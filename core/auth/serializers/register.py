@@ -15,7 +15,7 @@ class RegisterSerializer(UserSerializer):
 
     class Meta:
         model = User
-        # list all fields that can be included in a request or a response
+        # List all fields that can be included in a request or a response
         fields = ['id', 'username', 'email',
                   'password', 'first_name', 'last_name', 'avatar']
 

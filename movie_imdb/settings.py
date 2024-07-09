@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-import os
+
+from datetime import timedelta
 from pathlib import Path
 from decouple import config
 
@@ -157,6 +158,14 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_FILTER_BACKENDS':
     ['django_filters.rest_framework.DjangoFilterBackend'],
+}
+
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+
+    "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
 # Overriding the default user model

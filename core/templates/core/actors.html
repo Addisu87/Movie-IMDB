@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<section class="mt-9" x-data="carousel()">
+<section class="mt-9" x-data="carousel()" x-init="init()">
     <div class="flex items-center justify-between">
         <span class="font-semibold text-gray-700 text-base dark:text-white">Top Stars</span>
         <div class="flex items-center space-x-2 fill-gray-500">
@@ -66,18 +66,23 @@
             max: {{ actors|length }},
             init() {
                 this.updateSlidesPerView();
-                window.addEventListener('resize', this.updateSlidesPerView);
+                window.addEventListener('resize', this.updateSlidesPerView.bind(this));
             },
             updateSlidesPerView() {
                 const width = window.innerWidth;
-                if (width < 640) {
-                    this.slidesPerView = 2;
-                } else if (width < 768) {
-                    this.slidesPerView = 4;
-                } else if (width < 1024) {
-                    this.slidesPerView = 6;
-                } else {
-                    this.slidesPerView = 8;
+                switch (true) {
+                    case (width < 640):
+                        this.slidesPerView = 3;
+                        break;
+                    case (width < 768):
+                        this.slidesPerView = 4;
+                        break;
+                    case (width < 1024):
+                        this.slidesPerView = 6;
+                        break;
+                    default:
+                        this.slidesPerView = 8;
+                        break;
                 }
                 this.current = 0; // Reset to first slide to prevent issues when changing the number of slides
             },

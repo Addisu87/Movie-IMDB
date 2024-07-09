@@ -6,7 +6,10 @@ from core.directors.viewsets import DirectorViewSet
 from core.movies.viewsets import MovieViewSet
 from core.reviews.viewsets import ReviewViewSet
 from core.auth.viewsets import (
-    RegisterViewSet, LoginViewSet, RefreshViewSet
+    RegisterViewSet,
+    LoginViewSet,
+    RefreshViewSet,
+    LogoutViewSet
 )
 
 
@@ -25,6 +28,7 @@ router.register(r'reviews', ReviewViewSet, basename="reviews")
 router.register(r'auth/register', RegisterViewSet, basename="auth-register")
 router.register(r'auth/login', LoginViewSet, basename="auth-login")
 router.register(r'auth/refresh', RefreshViewSet, basename="auth-refresh")
+router.register(r'auth/logout', LogoutViewSet, basename="auth-logout")
 
 urlpatterns = [
     *router.urls

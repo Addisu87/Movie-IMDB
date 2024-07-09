@@ -19,16 +19,18 @@ router = routers.SimpleRouter()
 #################### USER ####################
 router.register(r'users', UserViewSet, basename="users")
 
-router.register(r'movies', MovieViewSet, basename="movies")
-router.register(r'actors', ActorViewSet, basename="actors")
-router.register(r'directors', DirectorViewSet, basename="directors")
-router.register(r'reviews', ReviewViewSet, basename="reviews")
 
 #################### AUTH ####################
 router.register(r'auth/register', RegisterViewSet, basename="auth-register")
 router.register(r'auth/login', LoginViewSet, basename="auth-login")
 router.register(r'auth/refresh', RefreshViewSet, basename="auth-refresh")
 router.register(r'auth/logout', LogoutViewSet, basename="auth-logout")
+
+#################### MOVIES ####################
+router.register(r'movies', MovieViewSet, basename="movies")
+router.register(r'actors', ActorViewSet, basename="actors")
+router.register(r'directors', DirectorViewSet, basename="directors")
+router.register(r'reviews', ReviewViewSet, basename="reviews")
 
 urlpatterns = [
     *router.urls

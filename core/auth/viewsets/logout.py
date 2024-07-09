@@ -1,15 +1,16 @@
-from rest_framework import viewsets, status
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.exceptions import ValidationError
 from rest_framework_simplejwt.tokens import (
     RefreshToken, TokenError
 )
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import viewsets, status
+from rest_framework.exceptions import ValidationError
+
+from core.auth.permissions import UserPermission
 
 
 class LogoutViewSet(viewsets.ViewSet):
-    authentication_classes = ()
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (UserPermission,)
     http_method_names = ['post']
 
     def create(self, request, *args, **kwargs):
@@ -22,5 +23,5 @@ class LogoutViewSet(viewsets.ViewSet):
             token = RefreshToken(request.data.get('refresh'))
             token.blacklist()
             return Response({'detail': 'Successfully logged out'}, status=status.HTTP_204_NO_CONTENT)
-        except TokenError as e:
+        except TokenError:
             raise ValidationError({'detail': 'The refresh token is invalid'})

@@ -23,7 +23,6 @@ In development, Tailwind CLI will be needed to watch and build the style.css
   npm run build
 ```
 
-```
-
-
+```bash
+    npm run watch
 ```

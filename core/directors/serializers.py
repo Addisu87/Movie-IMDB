@@ -9,4 +9,4 @@ class DirectorSerializer(AbstractSerializer):
     class Meta:
         model = Director
         fields = ['id', 'first_name', 'last_name', 'birth_date',
-                  'director_photo', 'nationality', 'created', 'updated']
+                  'director_photo', 'nationality', 'created_at', 'updated_at']

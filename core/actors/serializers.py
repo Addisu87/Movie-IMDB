@@ -9,4 +9,4 @@ class ActorSerializer(AbstractSerializer):
     class Meta:
         model = Actor
         fields = ['id', 'first_name', 'last_name', 'birth_date',
-                  'actor_photo', 'nationality', 'created', 'updated']
+                  'actor_photo', 'nationality', 'created_at', 'updated_at']

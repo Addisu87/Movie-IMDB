@@ -2,15 +2,13 @@ from rest_framework_simplejwt.tokens import (
     RefreshToken, TokenError
 )
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 from rest_framework import viewsets, status
 from rest_framework.exceptions import ValidationError
-
-from core.auth.permissions import UserPermission
+from rest_framework.permissions import IsAuthenticated
 
 
 class LogoutViewSet(viewsets.ViewSet):
-    permission_classes = (UserPermission,)
+    permission_classes = (IsAuthenticated,)
     http_method_names = ['post']
 
     def create(self, request, *args, **kwargs):

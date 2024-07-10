@@ -25,5 +25,5 @@ class MovieSerializer(AbstractSerializer):
         fields = [
             'id', 'title', 'slug', 'plot', 'poster', 'released_year',
             'duration', 'actors', 'directors', 'average_rating',
-            'created', 'updated'
+            'created_at', 'updated_at'
         ]

@@ -16,8 +16,9 @@ class RegisterSerializer(UserSerializer):
     class Meta:
         model = User
         # List all fields that can be included in a request or a response
-        fields = ['id', 'username', 'email',
-                  'password', 'first_name', 'last_name', 'avatar']
+        fields = [
+            'id', 'username', 'email', 'password', 'first_name', 'last_name', 'avatar'
+        ]
 
     def create(self, validated_data):
         # Use the 'create_user' method from the User model to create a new user

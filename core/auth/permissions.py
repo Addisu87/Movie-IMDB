@@ -21,11 +21,11 @@ class UserPermission(BasePermission):
 
     def has_permission(self, request, view):
         """Global permission check for crud operations."""
-        if view.basename in ['user', 'auth-logout']:
+        if view.basename in ['users', 'auth-logout']:
             # Allow read-only methods for anonymous users
             if request.method in SAFE_METHODS:
                 return True
 
             # Check if the user is authenticated
-            return request.user.is_authenticated
+            return bool(request.user and request.user.is_authenticated)
         return False

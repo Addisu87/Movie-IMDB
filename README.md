@@ -26,3 +26,15 @@ In development, Tailwind CLI will be needed to watch and build the style.css
 ```bash
     npm run watch
 ```
+
+<!-- to start the environment -->
+
+```bash
+    source menv/bin/activate
+```
+
+<!-- To run the app -->
+
+```bash
+    python manage.py runserver
+```

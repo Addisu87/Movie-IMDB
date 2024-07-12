@@ -6,11 +6,13 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from core.auth.serializers.register import RegisterSerializer
 
+from django.shortcuts import render
+
 
 class RegisterViewSet(ViewSet):
     serializer_class = RegisterSerializer
     permission_classes = (AllowAny,)
-    http_method_names = ['post']
+    http_method_names = ['get', 'post']
 
     def create(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
@@ -29,3 +31,6 @@ class RegisterViewSet(ViewSet):
             },
             status=status.HTTP_201_CREATED
         )
+
+    def list(self, request):
+        return render(request, 'core/auth/register.html')

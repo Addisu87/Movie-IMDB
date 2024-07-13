@@ -7,12 +7,13 @@ from rest_framework_simplejwt.exceptions import (
 )
 
 from core.auth.serializers import LoginSerializer
+from django.shortcuts import render
 
 
 class LoginViewSet(ViewSet):
     serializer_class = LoginSerializer
     permission_classes = (AllowAny, )
-    http_method_names = ['post']
+    http_method_names = ['get', 'post']
 
     def create(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
@@ -23,3 +24,6 @@ class LoginViewSet(ViewSet):
             raise InvalidToken(e.args[0])
 
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
+
+    def list(self, request):
+        return render(request, 'core/auth/login.html')

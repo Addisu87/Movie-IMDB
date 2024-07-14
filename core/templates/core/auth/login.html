@@ -28,7 +28,7 @@
         if (response.ok) {
             const data = await response.json();
             alert("Login successful");
-            {% comment %} window.location.href = '{% url '' %}'; {% endcomment %}
+            window.location.href = '{% url 'home' %}';
         } else {
             alert("Login failed");
         }
